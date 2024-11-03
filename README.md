@@ -18,14 +18,8 @@ Please run the following  commands to create a conda environment:
 
 ```bash
 conda create -y -n easyrec python=3.11
-pip install torch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1
-pip install -U "transformers==4.40.0" --upgrade
-pip install accelerate==0.28.0
-pip install tqdm
-pip install sentencepiece==0.2.0
-pip install scipy==1.9.3
-pip install setproctitle
-pip install sentence_transformers
+conda activate easyrec
+pip install -r requirements.txt
 ```
 
 ## 🚀 Use EasyRec
@@ -112,6 +106,12 @@ For the testing datasets, the files in the folder follow this structure:
 ## 🚀 Training
 EasyRec follows the same model achitecture of [RoBERTa](https://arxiv.org/abs/1907.11692).
 
+Install Git-LFS to handle large Huggingface models:
+```bash
+sudo apt install git-lfs
+git lfs install
+```
+
 First of all, please download the checkpoint of RoBERTa with the following commands:
 ```bash
 mkdir baseline_embedders
@@ -155,10 +155,22 @@ To evaluate EasyRec for text-based zero-shot recommendation, we conduct experime
 python encode_easyrec.py --model hkuds/easyrec-roberta-large --cuda 0
 ```
 
+To encode text embeddings for all models:
+
+```bash
+sh encode.sh
+```
+
 Then, conduct the evaluation (only the model name for the argument `--model` here):
 
 ```bash
 python eval_text_emb.py --model easyrec-roberta-large --cuda 0
+```
+
+To evaluate all models:
+
+```bash
+sh evaluate.sh
 ```
 
 
@@ -180,10 +192,22 @@ Then, navigate to the `cf_rec` folder by running `cd cf_rec`. After that, execut
     python run.py --model {model_name} --dataset steam --cuda 0
     ```
 
+    or
+
+    ```bash
+    sh cf_base.sh
+    ```
+
 - Text-enhanced model
 
     ```bash
     python run.py --model {model_name}_plus --semantic easyrec-roberta-large --dataset steam --cuda 0
+    ```
+
+    or
+
+    ```bash
+    sh cf_text_enhanced.sh
     ```
 
 **Supported Models:** `gccf` and `lightgcn`.

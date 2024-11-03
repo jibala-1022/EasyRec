@@ -169,7 +169,7 @@ def main():
                                       tokenizer=tokenizer,
                                       args=training_args,
                                       **data_module)
-    metric = Metric(metrics=['recall'], k=[20])
+    metric = Metric(metrics=['recall'], k=[10])
     trainer.add_evaluator(metric)
     trainer.add_logger(logger)
     ## training

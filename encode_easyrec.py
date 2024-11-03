@@ -38,7 +38,7 @@ tokenizer = transformers.AutoTokenizer.from_pretrained(
     use_fast=False,
 )
 
-eval_datas = ['sports', 'steam', 'yelp']
+eval_datas = ['movies']
 diverse_profile_num = 3
 
 for _dataset in eval_datas:

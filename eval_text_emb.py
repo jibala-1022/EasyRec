@@ -30,7 +30,7 @@ parser.add_argument('--cuda', type=str, default='0')
 args = parser.parse_args()
 os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda
 
-eval_dataset_list = ['sports', 'steam', 'yelp']
+eval_dataset_list = ['movies']
 diverse_profile_num = 3
 eval_dataset = {}
 for _dataset in eval_dataset_list:
@@ -42,7 +42,7 @@ for _dataset in eval_dataset_list:
 model_name = args.model
 print(model_name)
 overall_results = {}
-evaluator = Metric(k=[10, 20])
+evaluator = Metric(k=[5, 10, 20])
 
 for eval_dataset_name, _eval_dataset in eval_dataset.items():
     dataset_name = eval_dataset_name

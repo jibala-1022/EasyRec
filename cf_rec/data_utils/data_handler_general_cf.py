@@ -9,8 +9,8 @@ import torch.utils.data as data
 
 class DataHandlerGeneralCF:
 	def __init__(self):
-		if configs['data']['name'] == 'steam':
-			predir = '../data/steam/'
+		if configs['data']['name'] == 'movies':
+			predir = '../data/movies/'
 		else:
 			raise NotImplementedError
 		self.trn_file = predir + 'trn_mat.pkl'

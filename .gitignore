@@ -1,0 +1,8 @@
+# Directories
+__pycache__/
+baseline_embedders/
+checkpoints/
+data/
+
+# Files
+data.zip

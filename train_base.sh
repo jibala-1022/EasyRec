@@ -1,27 +1,27 @@
 model_path=./baseline_embedders/roberta-base
 data_path=./data/
-trn_dataset=arts-games-movies-home-electronics-tools
-val_dataset=arts-games-movies-home-electronics-tools
+trn_dataset=arts-games-home-electronics-sports-tools
+val_dataset=arts-games-home-electronics-sports-tools
 # There is another argument, total_diverse_profile_num, in line 88 of train_easyrec.py. We set it to 3, but if you have more, you should increase it.
 # total_diverse_profile_num >= used_diverse_profile_num
 used_diverse_profile_num=3
 output_model=./checkpoints/easyrec-roberta-base
-metric_for_best_model=recall@20
+metric_for_best_model=recall@10
 
 
 # Allow multiple threads
-export OMP_NUM_THREADS=8
+export OMP_NUM_THREADS=1
 
 # Use distributed data parallel
 # 8 * A100 (40G)
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --standalone --nnodes=1 --nproc_per_node=8 --master_port 40001 train_easyrec.py \
+CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nnodes=1 --nproc_per_node=1 --master_port 40001 train_easyrec.py \
     --model_name_or_path ${model_path} \
     --data_path ${data_path} \
     --trn_dataset ${trn_dataset} \
     --val_dataset ${val_dataset} \
     --output_dir ${output_model} \
-    --num_train_epochs 25 \
-    --per_device_train_batch_size 32 \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 8 \
     --learning_rate 5e-5 \
     --max_seq_length 64 \
     --evaluation_strategy steps \
