@@ -3,7 +3,7 @@ from model import Easyrec
 import torch.nn.functional as F
 from transformers import AutoConfig, AutoModel, AutoTokenizer
 
-MODEL = "jibala-1022/my-easyrec-base"
+MODEL = "jibala-1022/easyrec-base"
 config = AutoConfig.from_pretrained(MODEL)
 model = Easyrec.from_pretrained(MODEL, config=config,)
 tokenizer = AutoTokenizer.from_pretrained(MODEL, use_fast=False,)
@@ -19,5 +19,5 @@ with torch.inference_mode():
     embeddings = model.encode(input_ids=inputs.input_ids, attention_mask=inputs.attention_mask)
 embeddings = F.normalize(embeddings.pooler_output.detach().float(), dim=-1)
 
-print(embeddings[0] @ embeddings[1])    # 0.8576
-print(embeddings[0] @ embeddings[2])    # 0.2171
+print(embeddings[0] @ embeddings[1])
+print(embeddings[0] @ embeddings[2])

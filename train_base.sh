@@ -5,7 +5,7 @@ val_dataset=arts-games-home-electronics-sports-tools
 # There is another argument, total_diverse_profile_num, in line 88 of train_easyrec.py. We set it to 3, but if you have more, you should increase it.
 # total_diverse_profile_num >= used_diverse_profile_num
 used_diverse_profile_num=3
-output_model=./checkpoints/easyrec-roberta-base
+output_model=./checkpoints/easyrec-base
 metric_for_best_model=recall@10
 
 

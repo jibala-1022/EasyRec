@@ -7,6 +7,8 @@ This is the PyTorch implementation by <a href='https://github.com/Re-bin'>@Re-bi
 
 \* denotes corresponding author
 
+A Movie Recommendation App is deployed on [Huggingface](https://huggingface.co/spaces/jibala-1022/EasyRec)
+
 In this paper, we propose an effective language model, *EasyRec*, for recommendation. EasyRec is trained using collaborative information from multiple recommendation datasets, leveraging collaborative user/item profiles as input and employing novel contrastive learning objectives. By encoding user/item profiles into high-quality semantic embeddings suitable for recommendation, EasyRec demonstrates strong performance in text-based zero-shot recommendations and text-enhanced collaborative filtering scenarios.
 
 <p align="center">
@@ -33,15 +35,17 @@ cd EasyRec
 
 Here is an example code snippet to utilize EasyRec for encoding **text embeddings** based on user and item profiles for recommendations.
 
+`sample.py`
 ```Python
 import torch
 from model import Easyrec
 import torch.nn.functional as F
 from transformers import AutoConfig, AutoModel, AutoTokenizer
 
-config = AutoConfig.from_pretrained("hkuds/easyrec-roberta-large")
-model = Easyrec.from_pretrained("hkuds/easyrec-roberta-large", config=config,)
-tokenizer = AutoTokenizer.from_pretrained("hkuds/easyrec-roberta-large", use_fast=False,)
+hf_model = "jibala-1022/easyrec-base"
+config = AutoConfig.from_pretrained(hf_model)
+model = Easyrec.from_pretrained(hf_model, config=config,)
+tokenizer = AutoTokenizer.from_pretrained(hf_model, use_fast=False,)
 
 profiles = [
     'This user is a basketball fan and likes to play basketball and watch NBA games.', # user
@@ -59,11 +63,16 @@ print(embeddings[0] @ embeddings[2])    # 0.2171
 ```
 ### Model List
 We release a series of EasyRec checkpoints with varying sizes. You can easily load these models from Hugging Face by replacing the model name.
-|              Model              | Model Size | Recall@20 on Amazon-Sports |
+|              HF Model              | Model Size | Recall@20 on Amazon-Sports |
 |:-------------------------------|:--------:| :--------:|
-| [hkuds/easyrec-roberta-small](https://huggingface.co/hkuds/easyrec-roberta-small) |  82M  | 0.0286 |
+| [hkuds/easyrec-roberta-small](https://huggingface.co/hkuds/easyrec-roberta-small) |  82M   | 0.0286  |
 | [hkuds/easyrec-roberta-base](https://huggingface.co/hkuds/easyrec-roberta-base)   |  125M  | 0.0518  |
 | [hkuds/easyrec-roberta-large](https://huggingface.co/hkuds/easyrec-roberta-large) |  355M  | 0.0557  |
+
+|             Local Model              | Model Size | Recall@10 on Movies |
+|:-------------------------------|:--------:| :--------:|
+| [jibala-1022/easyrec-small](https://huggingface.co/jibala-1022/easyrec-small) |  243M   | 0.0086  |
+| [jibala-1022/easyrec-base](https://huggingface.co/jibala-1022/easyrec-base)   |  328M   | 0.0166  |
 
 
 ## 📚 Datasets with User/Item Profiles (for training and evaluation)
@@ -75,7 +84,7 @@ unzip data.zip
 ```
 You can also download our data from the [[Google Drive](https://drive.google.com/file/d/1fcAb9UwWHXVTLyK3a_MBOGTBqDp64k0P/view?usp=drive_link)]
 
-We utilize six datasets for training (`arts`, `movies`, `games`, `home`, `electronics`, `tools`) and three datasets for testing (`sports`, `steam`, `yelp`). The `steam` and `yelp` datasets are processed in accordance with [previous work (RLMRec)](https://github.com/HKUDS/RLMRec), while the others are derived from the [Amazon Review Data v2](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon_v2/).
+We utilize six datasets for training (`arts`, `sports`, `games`, `home`, `electronics`, `tools`) and one dataset for testing (`movies`). The `steam` and `yelp` datasets are processed in accordance with [previous work (RLMRec)](https://github.com/HKUDS/RLMRec), while the others are derived from the [Amazon Review Data v2](https://cseweb.ucsd.edu/~jmcauley/datasets/amazon_v2/).
 
 For the training datasets, the files in the folder follow this structure:
 ```

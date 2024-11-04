@@ -1,6 +1,7 @@
 #!/bin/bash
 
 models=(
+    # HF models
     "hkuds/easyrec-roberta-small"
     "hkuds/easyrec-roberta-base"
     "hkuds/easyrec-roberta-large"
@@ -10,6 +11,9 @@ models=(
     "google-bert/bert-large-uncased"
     "princeton-nlp/sup-simcse-roberta-base"
     "princeton-nlp/sup-simcse-roberta-large"
+    # Local models
+    "jibala-1022/easyrec-small"
+    "jibala-1022/easyrec-base"
 )
 
 for model in "${models[@]}"

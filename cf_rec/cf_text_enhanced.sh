@@ -1,6 +1,7 @@
 #!/bin/bash
 
 models=(
+    # HF models
     "easyrec-roberta-small"
     "easyrec-roberta-base"
     "easyrec-roberta-large"
@@ -10,6 +11,9 @@ models=(
     "bert-large-uncased"
     "sup-simcse-roberta-base"
     "sup-simcse-roberta-large"
+    # Local models
+    "easyrec-small"
+    "easyrec-base"
 )
 
 for cf_model in "gccf" "lightgcn"

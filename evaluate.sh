@@ -1,8 +1,7 @@
 #!/bin/bash
 
 models=(
-    "easyrec-roberta-small"
-    "easyrec-roberta-base"
+    # HF models
     "easyrec-roberta-large"
     "roberta-base"
     "roberta-large"
@@ -10,6 +9,9 @@ models=(
     "bert-large-uncased"
     "sup-simcse-roberta-base"
     "sup-simcse-roberta-large"
+    # Local models
+    "easyrec-small"
+    "easyrec-base"
 )
 
 for model_name in "${models[@]}"
