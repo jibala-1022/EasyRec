@@ -5,7 +5,7 @@ val_dataset=arts-games-home-electronics-sports-tools
 # There is another argument, total_diverse_profile_num, in line 88 of train_easyrec.py. We set it to 3, but if you have more, you should increase it.
 # total_diverse_profile_num >= used_diverse_profile_num
 used_diverse_profile_num=3
-output_model=./checkpoints/easyrec-roberta-small
+output_model=./checkpoints/hardrec-roberta-small
 metric_for_best_model=recall@10
 
 
@@ -21,7 +21,7 @@ CUDA_VISIBLE_DEVICES=0 torchrun --standalone --nnodes=1 --nproc_per_node=1 --mas
     --val_dataset ${val_dataset} \
     --output_dir ${output_model} \
     --num_train_epochs 3 \
-    --per_device_train_batch_size 8 \
+    --per_device_train_batch_size 16 \
     --learning_rate 5e-5 \
     --max_seq_length 64 \
     --evaluation_strategy steps \

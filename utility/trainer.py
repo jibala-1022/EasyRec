@@ -110,7 +110,9 @@ class EasyrecEmbedderTrainer(Trainer):
         metrics = {}
         for i in range(len(self.evaluator.k)):
             _k = self.evaluator.k[i]
-            metrics[f'{metric_key_prefix}_recall@{_k}'] = eval_result['recall'][i]
+            for _metric in self.evaluator.metrics:
+                metrics[f'{metric_key_prefix}_{_metric}@{_k}'] = eval_result[_metric][i]
+            # metrics[f'{metric_key_prefix}_recall@{_k}'] = eval_result['recall'][i]
         return metrics
 
     def _save_checkpoint(self, model, trial, metrics=None):
