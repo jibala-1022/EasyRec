@@ -17,4 +17,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://jibala-1022:$HF_TOKEN@huggingface.co/spaces/jibala-1022/EasyRec-Movie-Recommender main
+        run: git push --force https://jibala-1022:$HF_TOKEN@huggingface.co/spaces/jibala-1022/EasyRec-Movie-Recommender main
