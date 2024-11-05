@@ -1,0 +1,168 @@
+2024-11-05 00:34:30,147 - ModelArguments(model_name_or_path='./baseline_embedders/roberta-large', temp=0.05, pooler_type='cls', do_mlm=True, mlm_weight=0.1, mlp_only_train=False, cache_dir=None, use_auth_token=False, model_revision='main', use_fast_tokenizer=True)
+2024-11-05 00:34:30,147 - DataArguments(data_path='./data/', trn_dataset='movies', val_dataset='movies', used_diverse_profile_num=3, total_diverse_profile_num=3, add_item_raw_meta=True, max_seq_length=64, mlm_probability=0.15)
+2024-11-05 00:34:30,147 - TrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+batch_eval_metrics=False,
+bf16=True,
+bf16_full_eval=False,
+bits=16,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=1000,
+eval_strategy=IntervalStrategy.STEPS,
+eval_use_gather_object=False,
+evaluation_strategy=steps,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=True,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_for_metrics=[],
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=True,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./checkpoints/easyrec-large/runs/Nov05_00-34-29_MAINFRAME,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=recall@10,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./checkpoints/easyrec-large,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=4,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=./checkpoints/easyrec-large,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=False,
+save_steps=1000,
+save_strategy=IntervalStrategy.STEPS,
+save_total_limit=None,
+seed=42,
+skip_memory_metrics=True,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_liger_kernel=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+2024-11-05 00:45:26,008 - Step   1000 [eval_movies_recall@10: 0.0172 eval_movies_diverse_0_recall@10: 0.0162 eval_movies_diverse_1_recall@10: 0.0169 eval_movies_diverse_2_recall@10: 0.0176 ] 
+2024-11-05 00:45:26,009 - mean_metric_value: 0.016978321122385794
+2024-11-05 00:45:26,009 - Better Results! Now Saving...
+2024-11-05 00:55:47,225 - Step   2000 [eval_movies_recall@10: 0.0224 eval_movies_diverse_0_recall@10: 0.0202 eval_movies_diverse_1_recall@10: 0.0196 eval_movies_diverse_2_recall@10: 0.0201 ] 
+2024-11-05 00:55:47,226 - mean_metric_value: 0.02058025014446358
+2024-11-05 00:55:47,227 - Better Results! Now Saving...
+2024-11-05 01:06:54,068 - Step   3000 [eval_movies_recall@10: 0.0261 eval_movies_diverse_0_recall@10: 0.0241 eval_movies_diverse_1_recall@10: 0.0233 eval_movies_diverse_2_recall@10: 0.0236 ] 
+2024-11-05 01:06:54,068 - mean_metric_value: 0.024262945203802583
+2024-11-05 01:06:54,069 - Better Results! Now Saving...
+2024-11-05 01:17:08,687 - Step   4000 [eval_movies_recall@10: 0.0285 eval_movies_diverse_0_recall@10: 0.0247 eval_movies_diverse_1_recall@10: 0.0234 eval_movies_diverse_2_recall@10: 0.0241 ] 
+2024-11-05 01:17:08,688 - mean_metric_value: 0.02516001388721086
+2024-11-05 01:17:08,688 - Better Results! Now Saving...
+2024-11-05 01:27:22,103 - Step   5000 [eval_movies_recall@10: 0.0287 eval_movies_diverse_0_recall@10: 0.0266 eval_movies_diverse_1_recall@10: 0.0244 eval_movies_diverse_2_recall@10: 0.0250 ] 
+2024-11-05 01:27:22,104 - mean_metric_value: 0.0261849436141144
+2024-11-05 01:27:22,104 - Better Results! Now Saving...
+2024-11-05 01:37:36,536 - Step   6000 [eval_movies_recall@10: 0.0303 eval_movies_diverse_0_recall@10: 0.0260 eval_movies_diverse_1_recall@10: 0.0245 eval_movies_diverse_2_recall@10: 0.0258 ] 
+2024-11-05 01:37:36,536 - mean_metric_value: 0.026630596082096763
+2024-11-05 01:37:36,537 - Better Results! Now Saving...
+2024-11-05 01:47:55,931 - Step   7000 [eval_movies_recall@10: 0.0291 eval_movies_diverse_0_recall@10: 0.0267 eval_movies_diverse_1_recall@10: 0.0258 eval_movies_diverse_2_recall@10: 0.0251 ] 
+2024-11-05 01:47:55,932 - mean_metric_value: 0.026702875346497363
+2024-11-05 01:47:55,932 - Better Results! Now Saving...
+2024-11-05 01:58:10,609 - Step   8000 [eval_movies_recall@10: 0.0303 eval_movies_diverse_0_recall@10: 0.0268 eval_movies_diverse_1_recall@10: 0.0261 eval_movies_diverse_2_recall@10: 0.0260 ] 
+2024-11-05 01:58:10,610 - mean_metric_value: 0.027293170647409364
+2024-11-05 01:58:10,610 - Better Results! Now Saving...
+2024-11-05 02:08:24,498 - Step   9000 [eval_movies_recall@10: 0.0316 eval_movies_diverse_0_recall@10: 0.0273 eval_movies_diverse_1_recall@10: 0.0277 eval_movies_diverse_2_recall@10: 0.0264 ] 
+2024-11-05 02:08:24,498 - mean_metric_value: 0.0282756961106445
+2024-11-05 02:08:24,499 - Better Results! Now Saving...
+2024-11-05 02:18:38,805 - Step  10000 [eval_movies_recall@10: 0.0311 eval_movies_diverse_0_recall@10: 0.0286 eval_movies_diverse_1_recall@10: 0.0273 eval_movies_diverse_2_recall@10: 0.0262 ] 
+2024-11-05 02:18:38,806 - mean_metric_value: 0.028303538174645974
+2024-11-05 02:18:38,806 - Better Results! Now Saving...
+2024-11-05 02:29:59,188 - Step  11000 [eval_movies_recall@10: 0.0316 eval_movies_diverse_0_recall@10: 0.0284 eval_movies_diverse_1_recall@10: 0.0277 eval_movies_diverse_2_recall@10: 0.0264 ] 
+2024-11-05 02:29:59,189 - mean_metric_value: 0.02853687417768363
+2024-11-05 02:29:59,189 - Better Results! Now Saving...
+2024-11-05 02:40:12,369 - Step  12000 [eval_movies_recall@10: 0.0312 eval_movies_diverse_0_recall@10: 0.0282 eval_movies_diverse_1_recall@10: 0.0281 eval_movies_diverse_2_recall@10: 0.0264 ] 

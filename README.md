@@ -1,3 +1,16 @@
+---
+title: EasyRec Movie Recommender
+emoji: 🚀
+colorFrom: yellow
+colorTo: gray
+sdk: streamlit
+sdk_version: 1.39.0
+app_file: app.py
+pinned: false
+license: apache-2.0
+short_description: DA626 Final Project
+---
+
 # EasyRec: Simple yet Effective Language Model for Recommendation
 
 This is the PyTorch implementation by <a href='https://github.com/Re-bin'>@Re-bin</a> for EasyRec model proposed in this [paper](https://arxiv.org/abs/2408.08821):

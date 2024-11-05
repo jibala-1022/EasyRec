@@ -12,6 +12,7 @@ models=(
     # Local models
     "easyrec-small"
     "easyrec-base"
+    "easyrec-large"
 )
 
 for model_name in "${models[@]}"

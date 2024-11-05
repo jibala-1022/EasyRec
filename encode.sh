@@ -14,6 +14,7 @@ models=(
     # Local models
     "jibala-1022/easyrec-small"
     "jibala-1022/easyrec-base"
+    "jibala-1022/easyrec-large"
 )
 
 for model in "${models[@]}"
