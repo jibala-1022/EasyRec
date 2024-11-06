@@ -158,10 +158,10 @@ You can directly utilize the provided checkpoints on Hugging Face for evaluation
 
 ### Text-based Zero-shot Recommendation
 
-To evaluate EasyRec for text-based zero-shot recommendation, we conduct experiments on the `sports`, `steam`, and `yelp` datasets. First, run the following commands to encode the text embeddings for user/item profiles under these three datasets (to utilize the checkpoints obtained from your own training, simply change the argument to `--model ./checkpoints/easyrec-roberta-large`):
+To evaluate EasyRec for text-based zero-shot recommendation, we conduct experiments on the `movies` dataset. First, run the following commands to encode the text embeddings for user/item profiles under these three datasets (to utilize the checkpoints obtained from your own training, simply change the argument to `--model ./checkpoints/easyrec-roberta-large`):
 
 ```bash
-python encode_easyrec.py --model hkuds/easyrec-roberta-large --cuda 0
+python encode_easyrec.py --model hkuds/easyrec-roberta-base --cuda 0
 ```
 
 To encode text embeddings for all models:
@@ -173,7 +173,7 @@ sh encode.sh
 Then, conduct the evaluation (only the model name for the argument `--model` here):
 
 ```bash
-python eval_text_emb.py --model easyrec-roberta-large --cuda 0
+python eval_text_emb.py --model easyrec-roberta-base --cuda 0
 ```
 
 To evaluate all models:
@@ -190,7 +190,7 @@ Since there are 3 diversified profiles for both user and item in each dataset, w
 We conduct evaluation on text-enhanced collaborative filtering performance on the `steam` dataset. To evaluate EasyRec, please ensure that you have already encoded text embeddings for the `steam` dataset with the command:
 
 ```bash
-python encode_easyrec.py --model hkuds/easyrec-roberta-large --cuda 0
+python encode_easyrec.py --model hkuds/easyrec-roberta-base --cuda 0
 ```
 
 Then, navigate to the `cf_rec` folder by running `cd cf_rec`. After that, execute the following commands to evaluate:
@@ -198,7 +198,7 @@ Then, navigate to the `cf_rec` folder by running `cd cf_rec`. After that, execut
 - Base model
 
     ```bash
-    python run.py --model {model_name} --dataset steam --cuda 0
+    python run.py --model {model_name} --dataset movies --cuda 0
     ```
 
     or
@@ -210,7 +210,7 @@ Then, navigate to the `cf_rec` folder by running `cd cf_rec`. After that, execut
 - Text-enhanced model
 
     ```bash
-    python run.py --model {model_name}_plus --semantic easyrec-roberta-large --dataset steam --cuda 0
+    python run.py --model {model_name}_plus --semantic easyrec-roberta-base --dataset movies --cuda 0
     ```
 
     or

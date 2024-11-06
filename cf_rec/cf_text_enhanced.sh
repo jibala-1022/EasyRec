@@ -2,18 +2,18 @@
 
 models=(
     # HF models
-    # "easyrec-roberta-small"
-    # "easyrec-roberta-base"
-    # "easyrec-roberta-large"
-    # "roberta-base"
-    # "roberta-large"
-    # "bert-base-uncased"
-    # "bert-large-uncased"
-    # "sup-simcse-roberta-base"
-    # "sup-simcse-roberta-large"
-    # # Local models
-    # "easyrec-small"
-    # "easyrec-base"
+    "easyrec-roberta-small"
+    "easyrec-roberta-base"
+    "easyrec-roberta-large"
+    "roberta-base"
+    "roberta-large"
+    "bert-base-uncased"
+    "bert-large-uncased"
+    "sup-simcse-roberta-base"
+    "sup-simcse-roberta-large"
+    # Local models
+    "easyrec-small"
+    "easyrec-base"
     "easyrec-large"
 )
 
